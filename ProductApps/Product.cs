@@ -17,6 +17,7 @@ namespace ProductApps
 
         private decimal totalCharge;
         private decimal totalChargeAfterGrap;
+        private decimal totalChargeAfterGST;
 
         private decimal Price
         {
@@ -36,16 +37,26 @@ namespace ProductApps
             set { totalPayment = value; }
         }
 
+        //Total Charge
         public decimal TotalCharge
         {
             get { return totalCharge; }
             set { totalCharge = value; }
         }
 
+
+        //Total Price After Grap
         public decimal TotalChargeAfterGrap
         {
             get { return totalChargeAfterGrap; }
             set { totalChargeAfterGrap = value; }
+        }
+
+        //Total Charge after GST
+        public decimal TotalChargeAfterGST
+        {
+            get { return totalChargeAfterGST; }
+            set { totalChargeAfterGST = value; }
         }
 
 
@@ -93,6 +104,12 @@ namespace ProductApps
         public void calTotalChargeAfterGrap()
         {
             TotalChargeAfterGrap = TotalPayment + 25 + 5;
+        }
+
+        //Calculate the total cost after GST
+        public void calTotalChargeAfterGST()
+        {
+            TotalChargeAfterGST = ((TotalPayment + 25 + 5) * 10/100) + (TotalPayment + 25 + 5);
         }
     }
 }
